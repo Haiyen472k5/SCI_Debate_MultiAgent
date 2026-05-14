@@ -27,8 +27,7 @@ Mô hình dựa trên ý tưởng: *"unconfident disagreement đưa ra góc nhì
 - 🚧 *(Phase 4+)* Tool-MAD với RAG cho paper khoa học
 
 ## Architecture
-
-\`\`\`
+``` bash 
 scidebate/
 ├── agents/         # Pro, Con, Judge classes
 ├── llms/           # LLM backend abstraction (Ollama)
@@ -45,7 +44,8 @@ data/               # Datasets
 experiments/        # CLI runners
 tests/              # Unit tests
 app.py              # Streamlit demo UI
-\`\`\`
+
+```
 
 ## Requirements
 
@@ -56,7 +56,7 @@ app.py              # Streamlit demo UI
 
 ## Installation
 
-\`\`\`bash
+``` bash
 # 1. Clone repo
 git clone https://github.com/<your-username>/SCI_Debate_MultiAgent.git
 cd SCI_Debate_MultiAgent
@@ -71,25 +71,25 @@ pip install -e .
 # 4. Cài Ollama và pull model
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull qwen2.5:3b
-\`\`\`
+```
 
 ## Usage
 
 ### 1. Web UI (Streamlit)
 
-\`\`\`bash
+``` bash
 # Terminal 1: chạy Ollama
 ollama serve
 
 # Terminal 2: chạy app
 streamlit run app.py
-\`\`\`
+
 
 Mở trình duyệt tại `http://localhost:8501`, nhập claim và nhấn **Start Debate**.
-
+```
 ### 2. CLI
 
-\`\`\`bash
+``` bash
 # Debate với claim mặc định
 python experiments/run_demo.py
 
@@ -98,13 +98,12 @@ python experiments/run_demo.py \\
     --claim "Coffee reduces risk of type 2 diabetes." \\
     --rounds 2 \\
     --output outputs/coffee.json
-\`\`\`
 
 Xem all options: `python experiments/run_demo.py --help`
-
+```
 ### 3. Python API
 
-\`\`\`python
+``` bash
 from scidebate import Debate
 from scidebate.llms import OllamaLLM
 
@@ -113,19 +112,18 @@ debate = Debate(llm=llm, max_rounds=2)
 result = debate.run("Your scientific claim here.")
 
 print(result.summary())
-\`\`\`
+```
 
 ## Testing
 
-\`\`\`bash
+``` bash
 # Unit tests (mỗi module)
 python tests/test_llm.py
 python tests/test_memory.py
 python tests/test_prompts.py
 python tests/test_agents.py
 python tests/test_debate.py
-\`\`\`
-
+```
 ## Configuration
 
 Phase 1 mặc định:
